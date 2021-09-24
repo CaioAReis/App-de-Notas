@@ -1,0 +1,14 @@
+.note-form {
+    width: 30%;
+}
+
+.note-form textarea {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    color: #323935;
+    border: 1px solid #DCDCE6;
+    border-radius: 30px;
+    font-weight: 700;
+}

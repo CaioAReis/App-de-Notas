@@ -1,0 +1,14 @@
+.App-container {
+    padding-inline: 20px;
+}
+
+.App-container h1 {
+    text-align: center;
+    font-size: 30pt;
+    margin-block: 30px;
+}
+
+.App-container .main-container {
+    display: flex;
+    justify-content: space-around;
+}
