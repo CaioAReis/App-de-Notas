@@ -1,0 +1,27 @@
+ul.catego-list {
+    /* border: 1px solid blue; */
+    list-style: none;
+}
+
+ul.catego-list li {
+    display: inline-block;
+    margin-inline: 15px;
+    margin-block: 10px;
+
+    border: 2px solid aqua;
+    border-radius: 20px;
+    font-size: 15pt;
+    padding: 5px;
+    cursor: pointer;
+}
+
+ul.catego-list li:hover {
+    color: aqua;
+}
+
+ul.catego-list li.selected {
+    background-color: aqua;
+    color: #323935;
+    font-weight: bold;
+}
+

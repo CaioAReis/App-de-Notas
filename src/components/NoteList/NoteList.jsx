@@ -5,7 +5,7 @@ import './styles.css';
 class NoteList extends React.Component {
     render() {
         return (
-            <ul>
+            <ul className="note-list">
                 {this.props.notas.map((nota, index) => (
                     <li key={index}>
                         <NoteItem 
