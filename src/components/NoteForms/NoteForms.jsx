@@ -6,7 +6,13 @@ class NoteForms extends React.Component {
         super(props);
         this.titulo = '';
         this.nota = '';
+        this.categoriaNota = ''
         this.categoria = '';
+    }
+
+    handleTitulo(event) {
+        event.stopPropagation();
+        this.titulo = event.target.value;
     }
 
     handleNota(event) {
@@ -14,9 +20,9 @@ class NoteForms extends React.Component {
         this.nota = event.target.value;
     }
 
-    handleTitulo(event) {
+    handleCategoriaNota(event) {
         event.stopPropagation();
-        this.titulo = event.target.value;
+        this.categoriaNota = event.target.value;
     }
 
     handleCategoria(event) {
@@ -27,7 +33,7 @@ class NoteForms extends React.Component {
     handleCriarNota(event) {
         event.preventDefault();
         event.stopPropagation();
-        this.props.criarNota(this.titulo, this.nota);
+        this.props.criarNota(this.titulo, this.nota, this.categoriaNota);
     }
 
     handleCriarCategoria(event) {
@@ -47,9 +53,13 @@ class NoteForms extends React.Component {
                         placeholder="Título"
                         onChange={this.handleTitulo.bind(this)}
                     />
+                    <select onChange={this.handleCategoriaNota.bind(this)} className="categorias-list">
+                        {this.props.categorias.map(categoria => (
+                            <option value={categoria}>{categoria}</option>
+                        ))}
+                    </select>
                     <textarea 
-                        name="" id="" 
-                        rows="10"
+                        rows="6"
                         placeholder="Escreva sua nota"
                         onChange={this.handleNota.bind(this)}
                     />
@@ -69,9 +79,10 @@ class NoteForms extends React.Component {
                         style={{
                             width: 100,
                             position: 'absolute',
-                            top: -16, right: 0
-                        }}
-                        >OK</button>
+                            top: 4, right: 0
+                        }}>
+                            OK
+                    </button>
                 </form>
             </section>
         );

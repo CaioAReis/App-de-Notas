@@ -10,7 +10,8 @@ class NoteList extends React.Component {
                     <li key={index}>
                         <NoteItem 
                             titulo={nota.titulo} 
-                            texto={nota.texto} 
+                            texto={nota.texto}
+                            categoria={nota.categoria}
                             indexNota={index}
                             removerNota={this.props.removerNota}
                         />

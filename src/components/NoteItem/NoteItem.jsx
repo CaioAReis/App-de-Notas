@@ -10,9 +10,12 @@ class NoteItem extends React.Component {
     render() {
         return (
             <div className="item-list">
-                <h3>{this.props.titulo}</h3>     
+                <h3>{this.props.titulo}</h3>
+                <span className="category">{this.props.categoria}</span>
                 <p>{this.props.texto}</p>
-                <span onClick={() => this.handleRemover(this.props.indexNota)}> 
+                <span 
+                    className="trash"  
+                    onClick={() => this.handleRemover(this.props.indexNota)}> 
                     <FaTrashAlt size={30} title="Remover"/> 
                 </span>
             </div>

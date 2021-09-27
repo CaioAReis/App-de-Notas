@@ -6,17 +6,31 @@
 .item-list h3 {
     margin-bottom: 10px;
     font-size: 15pt;
+    width: 80%;
 }
 
 .item-list p {
     margin-bottom: 10px;
+    font-size: 12pt;
+    width: 80%;
 }
 
-.item-list span {
+.item-list span.category {
+    color: #FFF;
+    background-color: #323935;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border-radius: 30px;
+
+    position: absolute;
+    top: 20px; left: 82%;
+}
+
+.item-list span.trash {
     position: absolute;
     top: 15px; right: 10px;
 }
 
-.item-list span:hover {
+.item-list span.trash:hover {
     color: rgb(231, 47, 47);
 }

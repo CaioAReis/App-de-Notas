@@ -14,12 +14,13 @@ class App extends React.Component {
     super();
     this.state = {
       notas: [],
-      categorias: []
+      categorias: ["Todos"],
+      categoriaSelecionada: 0
     };
   }
 
-  criarNota(titulo, texto) {
-    const novaNota = {titulo, texto};
+  criarNota(titulo, texto, categoria) {
+    const novaNota = {titulo, texto, categoria};
     const novoArrayNotas = [...this.state.notas, novaNota];
     const novoEstado = {
       notas:novoArrayNotas
@@ -44,6 +45,10 @@ class App extends React.Component {
     this.setState(novoEstado);
   }
 
+  selecionarCategoria(index) {
+    this.setState({categoriaSelecionada: index});
+  }
+
   render() {
     return (
       <div className="App-container">
@@ -61,10 +66,13 @@ class App extends React.Component {
             <NoteForms 
               criarNota={this.criarNota.bind(this)}
               criarCategoria={this.criarCategoria.bind(this)}
+              categorias={this.state.categorias}
             />
             <section className="notes-list">
               <NoteCategorias 
                 categorias={this.state.categorias}
+                categoriaAtual={this.state.categoriaSelecionada}
+                categoriaSelecionada={this.selecionarCategoria.bind(this)}
               />
               <NoteList 
                 notas={this.state.notas} 
