@@ -2,8 +2,8 @@ import React from 'react';
 import './styles.css';
 class NoteCategorias extends React.Component {
 
-    handleSelecionarCategoria(index) {
-        this.props.categoriaSelecionada(index);
+    handleSelecionarCategoria(index, categoria) {
+        this.props.categoriaSelecionada(index, categoria);
     }
 
     render() {
@@ -14,7 +14,7 @@ class NoteCategorias extends React.Component {
                         key={index}
                         className={index === this.props.categoriaAtual ?
                         "selected" : ""}
-                        onClick={() => this.handleSelecionarCategoria(index)}>
+                        onClick={() => this.handleSelecionarCategoria(index, catego)}>
                         {catego}
                     </li>
                 ))}

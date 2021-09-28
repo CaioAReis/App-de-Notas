@@ -6,48 +6,38 @@ import NoteCategorias from './components/Notecategorias';
 
 import './styles.css';
 import {FaStickyNote} from 'react-icons/fa';
+import Categorias from './data/Categorias';
+import ArrayNotas from './data/ArrayNotas';
 
 // import { ReactComponent as NoteImg } from './assets/img/note-text.svg';
 class App extends React.Component {
 
   constructor() {
     super();
-    this.state = {
-      notas: [],
-      categorias: ["Todos"],
-      categoriaSelecionada: 0
-    };
+    this.categoria = new Categorias();
+    this.notas = new ArrayNotas();
   }
 
-  criarNota(titulo, texto, categoria) {
-    const novaNota = {titulo, texto, categoria};
-    const novoArrayNotas = [...this.state.notas, novaNota];
-    const novoEstado = {
-      notas:novoArrayNotas
-    }
-    this.setState(novoEstado);
-  }
+  // criarNota(titulo, texto, categoria) {
+  //   const novaNota = {titulo, texto, categoria};
+  //   const novoArrayNotas = [...this.state.notas, novaNota];
+  //   const novoEstado = {
+  //     notas:novoArrayNotas,
+  //     novoArrayNotas: this.state.categoriaSelecionada === 0 ? novoArrayNotas :
+  //       novoArrayNotas.filter(nota => nota.categoria === 
+  //         this.state.categorias[this.state.categoriaSelecionada])
+  //   }
+  //   this.setState(novoEstado);
+  // }
 
-  removerNota(indexNota) {
-    const novoArrayNotas = this.state.notas
-      .filter((nota, index) => index !== indexNota);
-    const novoEstado = {
-      notas:novoArrayNotas
-    }
-    this.setState(novoEstado);
-  }
-
-  criarCategoria(categoria) {
-    const novoArrayCategorias = [...this.state.categorias, categoria];
-    const novoEstado = {
-      categorias: novoArrayCategorias
-    }
-    this.setState(novoEstado);
-  }
-
-  selecionarCategoria(index) {
-    this.setState({categoriaSelecionada: index});
-  }
+  // selecionarCategoria(index, categoria) {
+  //   this.setState({categoriaSelecionada: index});
+  //   let novoArray = this.state.notas;
+  //   if (categoria !== "Todos") {
+  //     novoArray = novoArray.filter(nota => nota.categoria === categoria);
+  //   }
+  //   this.setState({novoArrayNotas: novoArray});
+  // }
 
   render() {
     return (
@@ -64,19 +54,19 @@ class App extends React.Component {
         
          <section className="main-container">
             <NoteForms 
-              criarNota={this.criarNota.bind(this)}
-              criarCategoria={this.criarCategoria.bind(this)}
-              categorias={this.state.categorias}
+              criarNota={this.notas.criarNota}
+              criarCategoria={this.categoria.criarCategoria}
+              categorias={this.categoria.categorias}
             />
             <section className="notes-list">
               <NoteCategorias 
-                categorias={this.state.categorias}
-                categoriaAtual={this.state.categoriaSelecionada}
-                categoriaSelecionada={this.selecionarCategoria.bind(this)}
+                categorias={this.categoria.categorias}
+                categoriaAtual={this.categoria.categoriaSelecionada}
+                categoriaSelecionada={this.categoria.selecionarCategoria}
               />
               <NoteList 
-                notas={this.state.notas} 
-                removerNota={this.removerNota.bind(this)}
+                notas={this.notas.notas}
+                removerNota={this.notas.removerNota}
               />
             </section>
          </section>
