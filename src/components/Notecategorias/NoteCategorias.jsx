@@ -1,6 +1,18 @@
 import React from 'react';
 import './styles.css';
 class NoteCategorias extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {categorias: []};
+    }
+
+    componentDidMount() {
+        this.props.categorias.inscrever(this.novasCategorias.bind(this));
+    }
+
+    novasCategorias(categorias) {
+        this.setState({...this.state, categorias});
+    }
 
     handleSelecionarCategoria(index, categoria) {
         this.props.categoriaSelecionada(index, categoria);
@@ -9,7 +21,7 @@ class NoteCategorias extends React.Component {
     render() {
         return(
             <ul className="catego-list">
-                {this.props.categorias.map((catego, index) => (
+                {this.state.categorias.map((catego, index) => (
                     <li 
                         key={index}
                         className={index === this.props.categoriaAtual ?

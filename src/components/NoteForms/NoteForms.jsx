@@ -6,8 +6,22 @@ class NoteForms extends React.Component {
         super(props);
         this.titulo = '';
         this.nota = '';
-        this.categoriaNota = ''
+        this.categoriaNota = 'Todos'
         this.categoria = '';
+        this.state = {categorias: ["Todos"]}
+        this.novasCategorias = this.novasCategorias.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.categorias.inscrever(this.novasCategorias);
+    }
+
+    componentWillUnmount() {
+        this.props.categorias.desinscrever(this.novasCategorias);
+    }
+
+    novasCategorias(categorias) {
+        this.setState({...this.state, categorias});
     }
 
     handleTitulo(event) {
@@ -54,8 +68,12 @@ class NoteForms extends React.Component {
                         onChange={this.handleTitulo.bind(this)}
                     />
                     <select onChange={this.handleCategoriaNota.bind(this)} className="categorias-list">
-                        {this.props.categorias.map(categoria => (
-                            <option value={categoria}>{categoria}</option>
+                        {this.state.categorias.map((categoria, index) => (
+                            <option 
+                                key={index} 
+                                value={categoria}>
+                                    {categoria}
+                            </option>
                         ))}
                     </select>
                     <textarea 

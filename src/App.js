@@ -54,19 +54,19 @@ class App extends React.Component {
         
          <section className="main-container">
             <NoteForms 
-              criarNota={this.notas.criarNota}
-              criarCategoria={this.categoria.criarCategoria}
-              categorias={this.categoria.categorias}
+              criarNota={this.notas.criarNota.bind(this.notas)}
+              criarCategoria={this.categoria.criarCategoria.bind(this.categoria)}
+              categorias={this.categoria}
             />
             <section className="notes-list">
               <NoteCategorias 
-                categorias={this.categoria.categorias}
+                categorias={this.categoria}
                 categoriaAtual={this.categoria.categoriaSelecionada}
-                categoriaSelecionada={this.categoria.selecionarCategoria}
+                categoriaSelecionada={this.categoria.selecionarCategoria.bind(this.categoria)}
               />
               <NoteList 
-                notas={this.notas.notas}
-                removerNota={this.notas.removerNota}
+                notas={this.notas}
+                removerNota={this.notas.removerNota.bind(this.notas)}
               />
             </section>
          </section>

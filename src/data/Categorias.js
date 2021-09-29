@@ -6,8 +6,8 @@ export default class Categorias {
     }
 
     criarCategoria(categoria) {
-        alert("Categoria criada!!" + categoria)
         this.categorias.push(categoria);
+        this.notificar();
     }
 
     selecionarCategoria(indice) {
@@ -16,6 +16,10 @@ export default class Categorias {
 
     inscrever(func) {
         this.inscritos.push(func);
+    }
+
+    desinscrever(func) {
+        this.inscritos = this.inscritos.filter(f => f !== func);
     }
 
     notificar() {
