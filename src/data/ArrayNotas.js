@@ -1,6 +1,7 @@
 export default class ArrayNotas {
     constructor() {
         this.notas = [];
+        this.filtroNotas = [];
         this.inscritos = [];
     }
 
@@ -13,7 +14,7 @@ export default class ArrayNotas {
     }
 
     notificar() {
-        this.inscritos.forEach(func => func(this.notas));
+        this.inscritos.forEach(func => func(this.notas, this.filtroNotas));
     }
 
     criarNota(titulo, descricao, categoria) {
@@ -24,6 +25,16 @@ export default class ArrayNotas {
 
     removerNota(indice) {
         this.notas.splice(indice, 1);
+        this.notificar();
+    }
+
+    filtarNotas(categoria) {
+        // alert("ENTROU AQUI SAMERDA!! " + categoria);
+        let novoArray = this.notas;
+        if (categoria !== "Todos") {
+            novoArray = novoArray.filter(nota => nota.categoria === categoria);
+        }
+        this.filtroNotas = novoArray;
         this.notificar();
     }
 }

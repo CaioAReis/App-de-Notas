@@ -23,6 +23,6 @@ export default class Categorias {
     }
 
     notificar() {
-        this.inscritos.forEach(func => func(this.categorias));
+        this.inscritos.forEach(func => func(this.categorias, this.categoriaSelecionada));
     }
 }

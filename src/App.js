@@ -59,10 +59,12 @@ class App extends React.Component {
               categorias={this.categoria}
             />
             <section className="notes-list">
-              <NoteCategorias 
+              <NoteCategorias
+                filtrarNotas={this.notas.filtarNotas.bind(this.notas)}
                 categorias={this.categoria}
-                categoriaAtual={this.categoria.categoriaSelecionada}
-                categoriaSelecionada={this.categoria.selecionarCategoria.bind(this.categoria)}
+                selecionarCategoria={
+                  this.categoria.selecionarCategoria.bind(this.categoria)
+                }
               />
               <NoteList 
                 notas={this.notas}
