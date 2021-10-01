@@ -48,6 +48,7 @@ class NoteForms extends React.Component {
         event.preventDefault();
         event.stopPropagation();
         this.props.criarNota(this.titulo, this.nota, this.categoriaNota);
+        this.props.selecionarCategoria(0);
     }
 
     handleCriarCategoria(event) {

@@ -1,7 +1,7 @@
 export default class ArrayNotas {
     constructor() {
+        this.geral = [];
         this.notas = [];
-        this.filtroNotas = [];
         this.inscritos = [];
     }
 
@@ -14,12 +14,18 @@ export default class ArrayNotas {
     }
 
     notificar() {
-        this.inscritos.forEach(func => func(this.notas, this.filtroNotas));
+        this.inscritos.forEach(func => func(this.notas));
     }
 
     criarNota(titulo, descricao, categoria) {
         const novaNota = new Nota(titulo, descricao, categoria);
-        this.notas.push(novaNota);
+        if (this.geral.length === 0) {
+            this.geral.push(novaNota);
+            this.notas.push(novaNota);
+        } else {
+            this.geral.push(novaNota);
+            this.filtarNotas("Todos");
+        }
         this.notificar();
     }
 
@@ -29,12 +35,11 @@ export default class ArrayNotas {
     }
 
     filtarNotas(categoria) {
-        // alert("ENTROU AQUI SAMERDA!! " + categoria);
-        let novoArray = this.notas;
+        let novoArray = this.geral;
         if (categoria !== "Todos") {
             novoArray = novoArray.filter(nota => nota.categoria === categoria);
         }
-        this.filtroNotas = novoArray;
+        this.notas = novoArray;
         this.notificar();
     }
 }

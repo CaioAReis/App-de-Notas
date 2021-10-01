@@ -2,6 +2,7 @@ export default class Categorias {
     constructor() {
         this.categorias = ["Todos"];
         this.categoriaSelecionada = 0;
+        this.categoriaAtual = this.categorias[this.categoriaSelecionada];
         this.inscritos = [];
     }
 
