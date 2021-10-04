@@ -3,7 +3,7 @@ import './styles.css';
 class NoteCategorias extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {categorias: [], atual: 0};
+        this.state = {categorias: []};
         this.novasCategorias = this.novasCategorias.bind(this);
     }
 
@@ -20,8 +20,6 @@ class NoteCategorias extends React.Component {
     }
 
     handleSelecionarCategoria(index) {
-        this.setState({...this.state, atual: index});
-        this.props.selecionarCategoria(index);
         this.props.filtrarNotas(this.state.categorias[index]);
     }
 
@@ -31,9 +29,8 @@ class NoteCategorias extends React.Component {
                 {this.state.categorias.map((catego, index) => (
                     <li 
                         key={index}
-                        className={index === this.state.atual ?
-                        "selected" : ""}
-                        onClick={() => this.handleSelecionarCategoria(index, catego)}>
+                        className="selected"
+                        onClick={() => this.handleSelecionarCategoria(index)}>
                         {catego}
                     </li>
                 ))}

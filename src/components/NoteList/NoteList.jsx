@@ -5,9 +5,7 @@ import './styles.css';
 class NoteList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            notas: []
-        };
+        this.state = {notas: []};
         this.novasNotas = this.novasNotas.bind(this);
     }
 

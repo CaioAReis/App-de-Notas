@@ -57,23 +57,14 @@ class App extends React.Component {
               criarNota={this.notas.criarNota.bind(this.notas)}
               criarCategoria={this.categoria.criarCategoria.bind(this.categoria)}
               categorias={this.categoria}
-              selecionarCategoria={
-                this.categoria.selecionarCategoria.bind(this.categoria)
-              }
             />
             <section className="notes-list">
               <NoteCategorias
                 filtrarNotas={this.notas.filtarNotas.bind(this.notas)}
                 categorias={this.categoria}
-                selecionarCategoria={
-                  this.categoria.selecionarCategoria.bind(this.categoria)
-                }
               />
               <NoteList 
                 notas={this.notas}
-                selecionarCategoria={
-                  this.categoria.selecionarCategoria.bind(this.categoria)
-                }
                 removerNota={this.notas.removerNota.bind(this.notas)}
               />
             </section>

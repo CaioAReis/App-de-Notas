@@ -1,18 +1,12 @@
 export default class Categorias {
     constructor() {
         this.categorias = ["Todos"];
-        this.categoriaSelecionada = 0;
-        this.categoriaAtual = this.categorias[this.categoriaSelecionada];
         this.inscritos = [];
     }
 
     criarCategoria(categoria) {
         this.categorias.push(categoria);
         this.notificar();
-    }
-
-    selecionarCategoria(indice) {
-        this.categoriaSelecionada = indice;
     }
 
     inscrever(func) {

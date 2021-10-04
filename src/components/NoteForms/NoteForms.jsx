@@ -7,6 +7,7 @@ class NoteForms extends React.Component {
         this.titulo = '';
         this.nota = '';
         this.categoriaNota = 'Todos'
+
         this.categoria = '';
         this.state = {categorias: ["Todos"]}
         this.novasCategorias = this.novasCategorias.bind(this);
@@ -48,7 +49,6 @@ class NoteForms extends React.Component {
         event.preventDefault();
         event.stopPropagation();
         this.props.criarNota(this.titulo, this.nota, this.categoriaNota);
-        this.props.selecionarCategoria(0);
     }
 
     handleCriarCategoria(event) {
