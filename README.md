@@ -1,6 +1,6 @@
 # App de Notas
 
-<img src="src/assets/img/Print.png" alt="Print">
+<img src="src/assets/img/Print.PNG" alt="Print">
 
 > Um aplicativo de gerenciamento de notas simples, onde você pode criar notas com título, descrição e categoria; também é possível removê-las e filtrá-las por categoria. Construídos com a intenção de praticar os estudos React JS com componentes de classe.
 
